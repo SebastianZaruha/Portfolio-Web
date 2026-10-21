@@ -49,6 +49,27 @@ function playVideo() {
 playVideo();
 
 
+// ---------- Madrid clock (home page) ----------
+
+var clock = document.querySelector(".clock");
+
+if (clock) {
+  var madridTime = new Intl.DateTimeFormat("es-ES", {
+    timeZone: "Europe/Madrid",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  });
+
+  function updateClock() {
+    clock.textContent = madridTime.format(new Date());
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+}
+
+
 // ---------- Esc on legal pages → back to home ----------
 
 if (document.body.classList.contains("legal")) {

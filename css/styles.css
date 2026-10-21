@@ -127,26 +127,44 @@ html[lang="en"] .es {
   position: fixed;
   top: 12vh;
   right: 5vw;
-  width: 25vw;
-  min-width: 300px;
+  min-width: 25vw; /* the box grows with the name, which stays on one line */
   min-height: 46vh;
   padding: 36px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .name-box h1 {
   margin: 0;
   font-family: "Ephesis", cursive;
   font-weight: normal;
-  font-size: clamp(3rem, 5vw, 6rem);
-  line-height: 1;
+  font-size: clamp(2.6rem, 4.4vw, 5.4rem);
+  line-height: 1.1;
+  white-space: nowrap; /* one line; allowed to wrap on very small screens (see Mobile) */
 }
 
-.name-box p {
-  margin: 24px 0 0;
+/* Text under the name: centered in the remaining space */
+.name-box-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 24px;
+}
+
+.status {
+  margin: 0;
   font-size: 1.5rem;
+}
+
+.tagline {
+  margin: 10px 0 0;
+  max-width: 30ch;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: var(--text-soft);
 }
 
 
@@ -198,6 +216,36 @@ html[lang="en"] .es {
 .footer a:hover {
   color: var(--text);
   text-decoration: underline;
+}
+
+
+/* =========================================================
+   Home: location + Madrid clock (bottom right)
+   ========================================================= */
+
+.location {
+  position: fixed;
+  right: 20px;
+  bottom: 14px; /* same line as the footer, but in the corner */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8rem;
+  color: var(--text);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.location svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--text);
+}
+
+.clock {
+  margin-left: 4px;
+  padding-left: 10px;
+  border-left: 1px solid var(--text-soft);
 }
 
 
@@ -260,15 +308,23 @@ html[lang="en"] .es {
     top: 50%;
     left: 16px;
     right: 16px;
-    width: auto;
     min-width: 0;
     min-height: 0;
-    padding: 28px;
+    padding: 28px 22px;
     transform: translateY(-50%);
   }
 
   .name-box h1 {
-    font-size: 3.6rem;
+    font-size: clamp(2.4rem, 11.4vw, 3.6rem); /* still fits one line at ~380px+ */
+    text-align: center;
+  }
+
+  /* Location + clock: centered, above the social icons */
+  .location {
+    left: 0;
+    right: 0;
+    bottom: 104px;
+    justify-content: center;
   }
 
   .legal main {
@@ -278,5 +334,14 @@ html[lang="en"] .es {
   .legal-text {
     padding: 24px 20px;
     font-size: 1.25rem;
+  }
+}
+
+
+/* Very small screens: the name may wrap onto two lines */
+@media (max-width: 379px) {
+  .name-box h1 {
+    white-space: normal;
+    font-size: 3rem;
   }
 }
