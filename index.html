@@ -1,72 +1,62 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sebastian Zaruha — Portfolio en construcción</title>
-<meta name="description" content="Portfolio de Sebastian Zaruha. Muy pronto.">
-<meta name="theme-color" content="#0F172A">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://sebastianzaruha.com/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sebastianzaruha.com/">
-<meta property="og:title" content="Sebastian Zaruha">
-<meta property="og:description" content="Portfolio en construcción · Portfolio under construction">
-<meta property="og:image" content="https://sebastianzaruha.com/media/poster.jpg">
-<meta property="og:image:width" content="1920">
-<meta property="og:image:height" content="1080">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@sebastianzaruha">
-<meta name="twitter:title" content="Sebastian Zaruha">
-<meta name="twitter:description" content="Portfolio en construcción · Portfolio under construction">
-<meta name="twitter:image" content="https://sebastianzaruha.com/media/poster.jpg">
-<link rel="preload" as="image" href="/media/poster.jpg">
-<link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-serif-400-v1.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-var-v1.woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site-v4.css">
-
-<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
-<script defer src="/_vercel/insights/script.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-es="Sebastian V. Zaruha — Portfolio en construcción" data-en="Sebastian V. Zaruha — Portfolio under construction">Sebastian V. Zaruha — Portfolio en construcción</title>
+  <meta name="description" content="Portfolio de Sebastian V. Zaruha. En construcción.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Sebastian V. Zaruha">
+  <meta property="og:description" content="Portfolio en construcción · Portfolio under construction">
+  <meta property="og:image" content="https://sebastianzaruha.com/media/poster.jpg">
+  <meta property="og:url" content="https://sebastianzaruha.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/main.js" defer></script>
+  <script src="/_vercel/insights/script.js" defer></script>
 </head>
-<body class="home">
-<div class="bg" aria-hidden="true">
-  <img src="/media/poster.jpg" alt="">
-  <video id="bgv" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="/media/poster.jpg">
+<body>
+
+  <!-- Background video -->
+  <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="/media/poster.jpg">
     <source src="/media/bg-v2.mp4" type="video/mp4">
     <source src="/media/bg.webm" type="video/webm">
   </video>
-</div>
-<div class="overlay"></div>
 
-<section class="panel glass" aria-label="Sebastian Zaruha">
-  <div class="panel-head">
-    <h1 class="name">Sebastian Zaruha</h1>
-    <button class="lang" id="lang" type="button" aria-label="Cambiar idioma a inglés">
-      <span data-l="es">ES</span><i aria-hidden="true">·</i><span data-l="en">EN</span>
-    </button>
+  <!-- Language toggle -->
+  <div class="lang-toggle">
+    <button type="button" data-lang="es">ES</button>
+    <button type="button" data-lang="en">EN</button>
   </div>
-  <p class="status" data-i18n="status">Portfolio en construcción</p>
-</section>
 
-<ul class="social glass">
-  <li><a href="https://github.com/SebastianZaruha" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a></li>
-  <li><a href="https://www.linkedin.com/in/sebastianzaruha" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a></li>
-  <li><a href="https://x.com/sebastianzaruha" target="_blank" rel="noopener noreferrer" aria-label="X">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></svg></a></li>
-</ul>
+  <!-- Name box -->
+  <section class="name-box glass">
+    <h1>Sebastian V.&nbsp;Zaruha</h1>
+    <p>
+      <span class="es">Portfolio en construcción</span>
+      <span class="en">Portfolio under construction</span>
+    </p>
+  </section>
 
-<footer class="foot">
-  <span>© 2026 Sebastian Zaruha</span><span class="sep" aria-hidden="true">·</span><a href="/aviso-legal" data-i18n="legal">Aviso legal</a><span class="sep" aria-hidden="true">·</span><a href="/privacidad" data-i18n="privacy">Privacidad</a>
-</footer>
+  <!-- Social links -->
+  <nav class="social">
+    <a href="https://github.com/SebastianZaruha" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/sebastianzaruha" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+    </a>
+    <a href="https://x.com/sebastianzaruha" target="_blank" rel="noopener noreferrer" aria-label="X">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></svg>
+    </a>
+  </nav>
 
-<script>
-window.I18N={
-  es:{title:"Sebastian Zaruha — Portfolio en construcción",status:"Portfolio en construcción",desc:"Portfolio de Sebastian Zaruha. Muy pronto."},
-  en:{title:"Sebastian Zaruha — Portfolio under construction",status:"Portfolio under construction",desc:"Sebastian Zaruha's portfolio. Coming soon."}
-};
-</script>
-<script src="/assets/site-v4.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    © 2026 Sebastian Zaruha ·
+    <a href="/aviso-legal"><span class="es">Aviso legal</span><span class="en">Legal notice</span></a> ·
+    <a href="/privacidad"><span class="es">Privacidad</span><span class="en">Privacy</span></a>
+  </footer>
+
 </body>
 </html>

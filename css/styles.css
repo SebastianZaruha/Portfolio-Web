@@ -1,0 +1,282 @@
+/* =========================================================
+   Fonts (self-hosted in /fonts)
+   ========================================================= */
+
+@font-face {
+  font-family: "Ephesis";
+  src: url("/fonts/Ephesis-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Grape Nuts";
+  src: url("/fonts/GrapeNuts-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/OpenSans-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+
+/* =========================================================
+   Colors and shared values
+   ========================================================= */
+
+:root {
+  --text: #ffffff;
+  --text-soft: rgba(255, 255, 255, 0.7);
+  --glass-fill: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --background: #0f172a;
+}
+
+
+/* =========================================================
+   Base
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--background) url("/media/poster.jpg") center / cover fixed;
+  font-family: "Grape Nuts", cursive;
+  overflow: hidden; /* every page fits the screen; legal text scrolls inside <main> */
+}
+
+a {
+  color: inherit;
+}
+
+/* Show only the active language (see js/main.js). */
+html[lang="es"] .en,
+html[lang="en"] .es {
+  display: none;
+}
+
+
+/* =========================================================
+   Background video (covers the whole screen)
+   ========================================================= */
+
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+/* =========================================================
+   Glass panel (name box and legal text)
+   ========================================================= */
+
+.glass {
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+}
+
+
+/* =========================================================
+   Language toggle (top right): plain letters "ES EN"
+   ========================================================= */
+
+.lang-toggle {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 2;
+}
+
+.lang-toggle button {
+  background: none;
+  border: none;
+  padding: 6px;
+  color: var(--text-soft);
+  opacity: 0.6;
+  font-family: "Grape Nuts", cursive;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.lang-toggle button.active {
+  color: var(--text);
+  opacity: 1;
+}
+
+
+/* =========================================================
+   Home: name box
+   ========================================================= */
+
+.name-box {
+  position: fixed;
+  top: 12vh;
+  right: 5vw;
+  width: 25vw;
+  min-width: 300px;
+  min-height: 46vh;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name-box h1 {
+  margin: 0;
+  font-family: "Ephesis", cursive;
+  font-weight: normal;
+  font-size: clamp(3rem, 5vw, 6rem);
+  line-height: 1;
+}
+
+.name-box p {
+  margin: 24px 0 0;
+  font-size: 1.5rem;
+}
+
+
+/* =========================================================
+   Home: social icons + footer (bottom center)
+   ========================================================= */
+
+.social {
+  position: fixed;
+  bottom: 48px; /* leaves ~28px between the icons and the footer */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.social a {
+  padding: 10px; /* bigger tap area, nothing visible */
+  opacity: 0.75;
+}
+
+.social a:hover {
+  opacity: 1;
+}
+
+.social svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: var(--text);
+}
+
+.footer {
+  position: fixed;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-soft);
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   Legal pages
+   ========================================================= */
+
+/* The text area stops above the footer, so they never overlap. */
+.legal main {
+  position: fixed;
+  top: 56px;    /* below the language toggle */
+  bottom: 44px; /* above the footer */
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  padding: 0 16px 24px;
+}
+
+.legal-text {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 40px;
+  font-size: 1.35rem; /* Grape Nuts is thin, so body text is a bit larger */
+  line-height: 1.75;
+}
+
+.back {
+  text-decoration: none;
+  font-size: 1.35rem;
+}
+
+.legal-text h1 {
+  font-size: 2.8rem;
+  font-weight: normal;
+  margin: 20px 0 0;
+}
+
+.legal-text h2 {
+  font-size: 1.7rem;
+  font-weight: normal;
+  margin: 28px 0 4px;
+}
+
+.legal-text p {
+  margin: 0 0 10px;
+}
+
+.updated {
+  color: var(--text-soft);
+}
+
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media (max-width: 600px) {
+  /* Name box centered on the screen */
+  .name-box {
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+    padding: 28px;
+    transform: translateY(-50%);
+  }
+
+  .name-box h1 {
+    font-size: 3.6rem;
+  }
+
+  .legal main {
+    padding: 0 12px 20px;
+  }
+
+  .legal-text {
+    padding: 24px 20px;
+    font-size: 1.25rem;
+  }
+}
