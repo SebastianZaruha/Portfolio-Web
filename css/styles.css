@@ -128,7 +128,7 @@ html[lang="en"] .es {
   top: 12vh;
   right: 5vw;
   min-width: 25vw; /* the box grows with the name, which stays on one line */
-  min-height: 46vh;
+  min-height: 40vh;
   padding: 36px;
   display: flex;
   flex-direction: column;
@@ -151,20 +151,22 @@ html[lang="en"] .es {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 24px;
+  padding-top: 20px;
+  contain: inline-size; /* the name sets the box width; this text wraps inside it */
 }
 
 .status {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: clamp(1.6rem, 1.1rem + 1vw, 2rem); /* 25.6px mobile → ~30px at 1280 → 32px max */
 }
 
 .tagline {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
   max-width: 30ch;
-  font-size: 1.15rem;
+  font-size: clamp(1.2rem, 0.85rem + 1vw, 1.6rem); /* 19.2px mobile → 25.6px desktop */
   line-height: 1.4;
-  color: var(--text-soft);
+  color: rgba(255, 255, 255, 0.88); /* brighter than --text-soft: Grape Nuts is thin */
+  text-wrap: balance; /* even line lengths, no single word on the last line */
 }
 
 
