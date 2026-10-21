@@ -23,90 +23,12 @@
 <link rel="preload" as="image" href="/media/poster.jpg">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-serif-400-v1.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-var-v1.woff2" crossorigin>
-<style>
-@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-400-v1.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Manrope";font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/manrope-var-v1.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-:root{
-  --serif:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
-  --sans:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --glass-bg:linear-gradient(160deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,.035) 100%);
-  --glass-border:rgba(255,255,255,.16);
-  --glass-blur:blur(22px) saturate(160%);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family:var(--sans);color:#fff;background:#0F172A url(/media/poster.jpg) center/cover no-repeat fixed;
-  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow:hidden;
-}
-.bg{position:fixed;inset:0;z-index:-2;overflow:hidden}
-.bg video,.bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.bg img{z-index:0}
-.bg video{z-index:1;display:block;opacity:1}
-.overlay{
-  position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(70% 55% at 100% 0%,rgba(10,14,28,.45) 0%,rgba(10,14,28,0) 70%),
-    linear-gradient(180deg,rgba(0,0,0,0) 70%,rgba(5,6,12,.45) 100%);
-}
-/* Frosted glass surface shared by panel + social pill */
-.glass{
-  background:var(--glass-bg);
-  -webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
-  border:1px solid var(--glass-border);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 10px 40px rgba(0,0,0,.28),0 1px 2px rgba(0,0,0,.2);
-}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:rgba(20,24,38,.62)}}
-.panel{
-  position:fixed;z-index:10;
-  top:calc(env(safe-area-inset-top) + 28px);right:calc(env(safe-area-inset-right) + 28px);
-  width:min(360px,calc(100vw - 56px));
-  padding:22px 24px 20px;border-radius:18px;
-}
-.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
-.name{
-  font-family:var(--serif);font-weight:400;font-size:2.15rem;line-height:1.02;letter-spacing:-.01em;
-  color:#fff;text-shadow:0 1px 16px rgba(0,0,0,.25);
-}
-.status{
-  margin-top:10px;font-size:.8rem;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.72);
-}
-.lang{
-  flex:none;display:flex;align-items:center;gap:6px;margin-top:4px;
-  background:none;border:0;cursor:pointer;color:inherit;font:600 .68rem/1 var(--sans);letter-spacing:.12em;
-  padding:4px 0;-webkit-tap-highlight-color:transparent;
-}
-.lang span{color:rgba(255,255,255,.42);transition:color .25s ease}
-.lang span.on{color:#fff}
-.lang i{font-style:normal;color:rgba(255,255,255,.3)}
-.lang:hover span:not(.on){color:rgba(255,255,255,.7)}
-.lang:focus-visible{outline:1px solid rgba(255,255,255,.7);outline-offset:4px;border-radius:4px}
-.social{
-  position:fixed;z-index:10;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 28px);
-  display:flex;align-items:center;gap:4px;list-style:none;padding:5px;border-radius:999px;
-}
-.social a{
-  display:grid;place-items:center;width:40px;height:36px;border-radius:999px;color:#fff;opacity:.62;
-  transition:opacity .25s ease,background .25s ease,transform .25s ease;-webkit-tap-highlight-color:transparent;
-}
-.social a:hover{opacity:1;background:rgba(255,255,255,.10)}
-.social a:active{transform:scale(.92)}
-.social a:focus-visible{opacity:1;outline:1px solid rgba(255,255,255,.7);outline-offset:1px}
-.social svg{width:17px;height:17px;fill:currentColor}
-@media (max-width:600px){
-  .panel{top:calc(env(safe-area-inset-top) + 16px);right:16px;left:16px;width:auto;padding:18px 20px 16px;border-radius:16px}
-  .name{font-size:1.9rem}
-  .social{bottom:calc(env(safe-area-inset-bottom) + 22px)}
-  .social a{width:44px;height:40px}
-}
-@media (prefers-reduced-motion:reduce){
-  .social a,.lang span{transition:none}
-}
-</style>
+<link rel="stylesheet" href="/assets/site-v4.css">
+
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body>
+<body class="home">
 <div class="bg" aria-hidden="true">
   <img src="/media/poster.jpg" alt="">
   <video id="bgv" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="/media/poster.jpg">
@@ -135,44 +57,16 @@ body{
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></svg></a></li>
 </ul>
 
+<footer class="foot">
+  <span>© 2026 Sebastian Zaruha</span><span class="sep" aria-hidden="true">·</span><a href="/aviso-legal" data-i18n="legal">Aviso legal</a><span class="sep" aria-hidden="true">·</span><a href="/privacidad" data-i18n="privacy">Privacidad</a>
+</footer>
+
 <script>
-(function(){
-  var T={
-    es:{title:"Sebastian Zaruha — Portfolio en construcción",status:"Portfolio en construcción",desc:"Portfolio de Sebastian Zaruha. Muy pronto.",toggle:"Cambiar idioma a inglés"},
-    en:{title:"Sebastian Zaruha — Portfolio under construction",status:"Portfolio under construction",desc:"Sebastian Zaruha's portfolio. Coming soon.",toggle:"Switch language to Spanish"}
-  };
-  var saved=null;try{saved=localStorage.getItem("lang")}catch(e){}
-  var nav=(navigator.languages&&navigator.languages[0])||navigator.language||"en";
-  var lang=(saved==="es"||saved==="en")?saved:(/^es/i.test(nav)?"es":"en");
-  var btn=document.getElementById("lang");
-  function apply(l){
-    var t=T[l];document.documentElement.lang=l;document.title=t.title;
-    document.querySelectorAll("[data-i18n]").forEach(function(el){el.textContent=t[el.getAttribute("data-i18n")]});
-    var d=document.querySelector('meta[name="description"]');if(d)d.setAttribute("content",t.desc);
-    btn.setAttribute("aria-label",t.toggle);
-    btn.querySelectorAll("span").forEach(function(s){s.classList.toggle("on",s.getAttribute("data-l")===l)});
-  }
-  apply(lang);
-  btn.addEventListener("click",function(){lang=lang==="es"?"en":"es";try{localStorage.setItem("lang",lang)}catch(e){}apply(lang)});
-  // Background video: always play (also with prefers-reduced-motion), with autoplay fallbacks.
-  var v=document.getElementById("bgv");
-  v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.setAttribute("muted","");
-  var evs=["pointerdown","keydown","touchstart","click"];
-  function unbind(){evs.forEach(function(e){document.removeEventListener(e,tryPlay,true)})}
-  function bind(){evs.forEach(function(e){document.addEventListener(e,tryPlay,{capture:true,passive:true})})}
-  function tryPlay(){
-    if(!v.paused)return unbind();
-    v.muted=true;
-    var p=v.play();
-    if(p&&p.then)p.then(unbind).catch(bind);
-  }
-  tryPlay();
-  v.addEventListener("canplay",tryPlay);
-  v.addEventListener("loadeddata",tryPlay);
-  v.addEventListener("pause",function(){if(!document.hidden)setTimeout(tryPlay,300)});
-  document.addEventListener("visibilitychange",function(){if(!document.hidden)tryPlay()});
-  window.addEventListener("pageshow",tryPlay);
-})();
+window.I18N={
+  es:{title:"Sebastian Zaruha — Portfolio en construcción",status:"Portfolio en construcción",desc:"Portfolio de Sebastian Zaruha. Muy pronto."},
+  en:{title:"Sebastian Zaruha — Portfolio under construction",status:"Portfolio under construction",desc:"Sebastian Zaruha's portfolio. Coming soon."}
+};
 </script>
+<script src="/assets/site-v4.js"></script>
 </body>
 </html>
