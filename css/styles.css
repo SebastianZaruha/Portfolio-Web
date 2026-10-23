@@ -135,11 +135,12 @@ html[lang="en"] .es {
 }
 
 .name-box h1 {
-  margin: 0;
+  margin: clamp(4px, 1.2vh, 20px) 0 0; /* a little lower than the box edge */
   font-family: "Ephesis", cursive;
   font-weight: normal;
-  font-size: clamp(2.6rem, 4.4vw, 5.4rem);
+  font-size: clamp(2.8rem, 5vw, 6.4rem);
   line-height: 1.1;
+  text-align: center; /* stays centered when the box is wider than the name (big screens) */
   white-space: nowrap; /* one line; allowed to wrap on very small screens (see Mobile) */
 }
 
