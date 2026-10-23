@@ -4,7 +4,7 @@ Portfolio personal de **Sebastian Zaruha** (en construcción).
 
 🌐 [sebastianzaruha.com](https://sebastianzaruha.com)
 
-Web estática (HTML, CSS y JavaScript) desplegada en [Vercel](https://vercel.com), disponible en español e inglés.
+Disponible en español e inglés.
 
 ---
 
