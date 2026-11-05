@@ -1,11 +1,13 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import Link from "next/link";
+import Script from "next/script";
 import { CookieBanner } from "@/components/cookie-banner";
-import { LocaleSwitcher } from "@/components/locale-switcher";
 import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { SiteProviders } from "@/components/site-providers";
+import { display, sans } from "@/app/fonts";
+import { LOCALE_STORAGE_KEY } from "@/lib/ga";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,13 +15,15 @@ export const metadata: Metadata = {
     default: "Sebastian V. Zaruha",
     template: "%s · Sebastian V. Zaruha",
   },
-  description: "Portfolio de Sebastian V. Zaruha. En construcción.",
+  description: "Analizo antes de construir. Junior full stack. Criterio de diseño.",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#141311",
+  themeColor: "#161311",
   colorScheme: "dark",
 };
+
+const localeScript = `try{var l=localStorage.getItem(${JSON.stringify(LOCALE_STORAGE_KEY)});if(l==="en"||l==="es")document.documentElement.lang=l;}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -27,22 +31,25 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html
+      lang="es"
+      className={`${sans.variable} ${display.variable}`}
+      style={{ backgroundColor: "#161311", color: "#f4eee6" }}
+    >
       <body>
+        <Script id="locale-early" strategy="beforeInteractive">
+          {localeScript}
+        </Script>
+        <a className="skip" href="#contenido">
+          <span className="es-only">Saltar al contenido</span>
+          <span className="en-only">Skip to content</span>
+        </a>
         <SiteProviders>
           <div className="site">
-            <header className="site-header">
-              <Link className="wordmark" href="/">
-                Sebastian V. Zaruha
-              </Link>
-              <div className="header-tools">
-                <LocaleSwitcher />
-                <nav className="nav" aria-label="Secciones">
-                  <Link href="/sobre-mi">Sobre mí</Link>
-                </nav>
-              </div>
-            </header>
-            {children}
+            <SiteHeader />
+            <div className="site-main" id="contenido">
+              {children}
+            </div>
             <SiteFooter />
           </div>
           <CookieBanner />

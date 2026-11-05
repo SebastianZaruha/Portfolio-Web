@@ -1,0 +1,41 @@
+/*
+  Tokens — portfolio definitivo
+  Near-dark warm base, one brass accent, two families.
+  Motion stays inside 150–400ms. Name/claim are not faded in (that would delay LCP).
+  --font-sans-file and --font-display-file are set by next/font on <html>.
+*/
+
+:root {
+  --bg: #161311;
+  --bg-raised: #211e1a;
+  --text: #f4eee6;
+  --muted: #b7aea3;
+  --faint: #8c8378;
+  --line: #322d28;
+  --accent: #c4a574;
+  --accent-hover: #d4b88a;
+  --accent-ink: #1a1612;
+  --font-sans: var(--font-sans-file), "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: var(--font-display-file), "Iowan Old Style", Palatino, Georgia, serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.75rem, 4vw, 2.65rem);
+  --text-display: clamp(3.1rem, 9vw, 5.4rem);
+  --space-2xs: 0.35rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4.5rem;
+  --measure: 38rem;
+  --radius: 2px;
+  --dur-fast: 160ms;
+  --dur: 280ms;
+  --dur-enter: 360ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-press: cubic-bezier(0.3, 0, 0.2, 1);
+  --header-h: 4.25rem;
+}

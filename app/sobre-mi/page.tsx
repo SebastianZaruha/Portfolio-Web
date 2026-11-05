@@ -2,17 +2,28 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Sobre mí",
-  description: "Perfil de Sebastian V. Zaruha. Texto pendiente.",
+  description:
+    "Antes de programar me formé en arquitectura. Trabajo con React y Python. Soy junior.",
 };
 
 export default function SobreMiPage() {
   return (
     <main className="page">
-      <p className="eyebrow">Borrador</p>
-      <h1>Sobre mí</h1>
-      <p>
-        El perfil se escribirá aquí. Mientras tanto, el sitio publicado sigue
-        siendo el HTML estático de la rama main.
+      <h1>
+        <span className="es-only">Sobre mí</span>
+        <span className="en-only">About</span>
+      </h1>
+      <p className="lede enter">
+        <span className="es-only">
+          Antes de programar me formé en arquitectura. Me dejó el hábito: analizar antes de
+          construir, cuidar el diseño y pensar en quién lo usa de verdad. Trabajo con React y Python.
+          Soy junior: lo digo sin rodeos.
+        </span>
+        <span className="en-only">
+          Before code, I studied architecture. It left a habit: think before I build, care about
+          design, and remember who actually uses it. I work with React and Python. I’m junior — I say
+          that plainly.
+        </span>
       </p>
     </main>
   );

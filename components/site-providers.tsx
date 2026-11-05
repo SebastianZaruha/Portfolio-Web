@@ -68,6 +68,7 @@ export function SiteProviders({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (consent === CONSENT_UNKNOWN || consent?.choice !== "accept") return;
     loadGoogleAnalytics();
+    if (window.__portfolioGaStopped) return;
     if (trackedPath.current === pathname) return;
     const first = trackedPath.current === null;
     trackedPath.current = pathname;
@@ -100,6 +101,7 @@ export function SiteProviders({ children }: { children: ReactNode }) {
   }, []);
 
   const reject = useCallback(() => {
+    rejectGoogleAnalytics();
     saveConsent("reject");
     setSettingsOpen(false);
   }, []);

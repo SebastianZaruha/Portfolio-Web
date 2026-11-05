@@ -65,8 +65,8 @@ export default function PrivacidadPage() {
 
         <h2>Recursos propios</h2>
         <p>
-          Las fuentes tipográficas, el vídeo y las imágenes se sirven desde el propio sitio, sin
-          cargar Google Fonts ni otros proveedores externos de contenido por defecto.
+          Las tipografías y las imágenes están autoalojadas en el propio sitio, sin cargar Google
+          Fonts ni otros proveedores externos de contenido por defecto.
         </p>
 
         <h2>Formulario de contacto</h2>
@@ -158,8 +158,8 @@ export default function PrivacidadPage() {
 
         <h2>Self-hosted resources</h2>
         <p>
-          Fonts, video and images are served from this site; no Google Fonts or other external content
-          CDNs by default.
+          Fonts and images are self-hosted on this site, with no Google Fonts or other external
+          content providers by default.
         </p>
 
         <h2>Contact form</h2>
