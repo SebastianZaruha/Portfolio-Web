@@ -14,10 +14,13 @@ Abre [http://localhost:3000](http://localhost:3000).
 
 ## Qué hay
 
-- `/` — claim: «Analizo antes de construir.» El cambio a inglés queda para más adelante.
-- `/sobre-mi`, `/aviso-legal` y `/privacidad` — contenido de relleno. No sustituyen los textos legales publicados.
-- CSS plano y paleta casi negra (fondo cálido, neutros, un acento). Sin Tailwind, sin Three.js y sin vídeo de fondo.
+- `/` — claim: «Analizo antes de construir.»
+- `/sobre-mi` — borrador.
+- `/aviso-legal`, `/privacidad` y `/cookies` — textos legales (ES + EN). Google Analytics 4 (`G-SZGV9NFPVH`) solo se carga si se acepta el banner. Vercel Web Analytics no usa cookies y permanece activo.
+- CSS plano y paleta casi negra. Sin Tailwind, sin Three.js y sin vídeo de fondo.
 - Tipografía de sistema, hasta traer fuentes autoalojadas.
+
+La preferencia del banner se guarda en `localStorage` (`cookie_consent`) con la versión `v1-portfolio-2026-11-05`. No usar el property de Hourglass (`G-LEKYE5VYL2`). `NEXT_PUBLIC_GA_ID` es opcional y solo se tiene en cuenta si vale `G-SZGV9NFPVH` (ver `.env.example`).
 
 ## Deploy
 
