@@ -20,9 +20,9 @@ export default function SobreMiPage() {
           Soy junior: lo digo sin rodeos.
         </span>
         <span className="en-only">
-          Before code, I studied architecture. It left a habit: think before I build, care about
-          design, and remember who actually uses it. I work with React and Python. I’m junior — I say
-          that plainly.
+          Before I started coding, I studied architecture. It left a habit: think before I build,
+          care about design, and remember who actually uses it. I work with React and Python. I’m
+          junior — I say that plainly.
         </span>
       </p>
     </main>

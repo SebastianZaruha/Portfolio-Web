@@ -13,15 +13,15 @@ export const sans = localFont({
 });
 
 /**
- * Name only. Optional: use it when it is already there, otherwise keep the
- * serif fallback for the whole visit so a slow font cannot move the claim.
+ * Name only, in the header and the hero. Swap (not optional) so both places
+ * resolve to Ephesis together instead of one staying on the serif fallback.
  */
 export const display = localFont({
   src: "./fonts/Ephesis-Regular.woff2",
   variable: "--font-display-file",
   weight: "400",
   style: "normal",
-  display: "optional",
-  preload: false,
+  display: "swap",
+  preload: true,
   fallback: ["Iowan Old Style", "Palatino", "Georgia", "serif"],
 });
