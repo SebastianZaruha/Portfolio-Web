@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { FrescoStill } from "@/components/fresco-still";
 
 export const metadata: Metadata = {
   title: "Sobre mí",
@@ -10,8 +9,6 @@ export const metadata: Metadata = {
 
 export default function SobreMiPage() {
   return (
-    <>
-    <FrescoStill />
     <main className="page">
       <h1>
         <span className="es-only">Sobre mí</span>
@@ -30,6 +27,5 @@ export default function SobreMiPage() {
         </span>
       </p>
     </main>
-    </>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
-import { FrescoStill } from "@/components/fresco-still";
 
 export const metadata: Metadata = {
   title: "Hablemos",
@@ -10,8 +9,6 @@ export const metadata: Metadata = {
 
 export default function HablemosPage() {
   return (
-    <>
-    <FrescoStill />
     <main className="page">
       <h1>Hablemos</h1>
       <p className="lede">
@@ -22,6 +19,5 @@ export default function HablemosPage() {
         <ContactForm />
       </div>
     </main>
-    </>
   );
 }

@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { CookieBanner } from "@/components/cookie-banner";
+import { PaintingBackdrop } from "@/components/painting-backdrop";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteProviders } from "@/components/site-providers";
@@ -52,6 +53,14 @@ export default function RootLayout({
       <body>
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
         <style dangerouslySetInnerHTML={{ __html: criticalThemeCss }} />
+        <link
+          rel="preload"
+          as="image"
+          href="/painting/selected.avif"
+          type="image/avif"
+          fetchPriority="high"
+        />
+        <PaintingBackdrop />
         <a className="skip" href="#contenido">
           <span className="es-only">Saltar al contenido</span>
           <span className="en-only">Skip to content</span>

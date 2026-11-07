@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FrescoScene } from "@/components/fresco-scene";
 import { CONTACT_HREF, GITHUB_HREF, LINKEDIN_HREF } from "@/lib/contact";
 
 export const metadata: Metadata = {
@@ -10,9 +9,9 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "/fresco/fresco-1920.jpg",
-        width: 1920,
-        height: 1080,
+        url: "/painting/selected.jpg",
+        width: 2160,
+        height: 2700,
         alt: "Fondo visual del portfolio de Sebastian V. Zaruha",
       },
     ],
@@ -22,15 +21,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <link
-        rel="preload"
-        as="image"
-        href="/fresco/fresco-1920.avif"
-        type="image/avif"
-        fetchPriority="high"
-      />
-      <FrescoScene>
-        <section className="plate plate-intro" data-frame="whole">
+      <section className="plate plate-intro">
           <div className="plate-copy">
             <h1 className="intro-name">Sebastian V. Zaruha</h1>
             <p className="role">
@@ -56,7 +47,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="plate plate-architect" data-frame="architect" aria-labelledby="architect-title">
+        <section className="plate plate-architect" aria-labelledby="architect-title">
           <div className="plate-copy">
             <p className="chapter-kicker">01</p>
             <h2 id="architect-title">
@@ -78,7 +69,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="plate plate-thinker" data-frame="thinker" aria-labelledby="think-title">
+        <section className="plate plate-thinker" aria-labelledby="think-title">
           <div className="plate-copy">
             <p className="chapter-kicker">02</p>
             <h2 id="think-title">
@@ -120,7 +111,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="plate plate-builder" data-frame="builder" aria-labelledby="build-title">
+        <section className="plate plate-builder" aria-labelledby="build-title">
           <div className="plate-copy">
             <p className="chapter-kicker">03</p>
             <h2 id="build-title">
@@ -141,7 +132,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </FrescoScene>
 
       <section className="resolve" aria-labelledby="resolve-title">
         <div className="resolve-inner">
