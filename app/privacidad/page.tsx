@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Política de privacidad",
   description:
     "Política de privacidad de sebastianzaruha.com. Google Analytics solo con consentimiento; Vercel Web Analytics sin cookies.",
+  alternates: { canonical: "/privacidad" },
 };
 
 export default function PrivacidadPage() {

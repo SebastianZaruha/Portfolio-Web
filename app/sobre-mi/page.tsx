@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Sobre mí",
   description:
     "Antes de programar me formé en arquitectura. Trabajo con React y Python. Soy junior.",
+  alternates: { canonical: "/sobre-mi" },
 };
 
 export default function SobreMiPage() {

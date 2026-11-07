@@ -5,12 +5,12 @@ import { LocaleSwitcher } from "@/components/locale-switcher";
 import { useSite } from "@/components/site-providers";
 
 export function SiteFooter() {
-  const { bannerOpen, openBanner } = useSite();
+  const { locale, bannerOpen, openBanner } = useSite();
 
   return (
     <footer className="site-footer">
       <p>© 2026 Sebastian Zaruha</p>
-      <nav className="nav" aria-label="Legal">
+      <nav className="nav" aria-label={locale === "en" ? "Legal" : "Información legal"}>
         <Link href="/aviso-legal">
           <span className="es-only">Aviso legal</span>
           <span className="en-only">Legal notice</span>

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Aviso legal",
   description: "Aviso legal del sitio web de Sebastian Zaruha.",
+  alternates: { canonical: "/aviso-legal" },
 };
 
 export default function AvisoLegalPage() {

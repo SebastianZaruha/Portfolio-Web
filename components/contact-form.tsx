@@ -47,42 +47,65 @@ export function ContactForm() {
   return (
     <>
       <form className="form" action={CONTACT_HREF} method="post" encType="text/plain" onSubmit={onSubmit} noValidate>
-        <label className="field">
-          <span>
+        <div className="field">
+          <label htmlFor="contact-name">
             <span className="es-only">Nombre</span>
             <span className="en-only">Name</span>
-          </span>
-          <input name="name" type="text" autoComplete="name" aria-invalid={errors.name || undefined} required />
+          </label>
+          <input
+            id="contact-name"
+            name="name"
+            type="text"
+            autoComplete="name"
+            aria-invalid={errors.name || undefined}
+            aria-describedby={errors.name ? "contact-name-error" : undefined}
+            required
+          />
           {errors.name ? (
-            <p className="field-error">
+            <p id="contact-name-error" className="field-error">
               <span className="es-only">Escribe tu nombre.</span>
               <span className="en-only">Write your name.</span>
             </p>
           ) : null}
-        </label>
-        <label className="field">
-          <span>Email</span>
-          <input name="email" type="email" autoComplete="email" aria-invalid={errors.email || undefined} required />
+        </div>
+        <div className="field">
+          <label htmlFor="contact-email">Email</label>
+          <input
+            id="contact-email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            aria-invalid={errors.email || undefined}
+            aria-describedby={errors.email ? "contact-email-error" : undefined}
+            required
+          />
           {errors.email ? (
-            <p className="field-error">
+            <p id="contact-email-error" className="field-error">
               <span className="es-only">Ese email no parece válido.</span>
               <span className="en-only">That email does not look valid.</span>
             </p>
           ) : null}
-        </label>
-        <label className="field">
-          <span>
+        </div>
+        <div className="field">
+          <label htmlFor="contact-message">
             <span className="es-only">Mensaje</span>
             <span className="en-only">Message</span>
-          </span>
-          <textarea name="message" rows={6} aria-invalid={errors.message || undefined} required />
+          </label>
+          <textarea
+            id="contact-message"
+            name="message"
+            rows={6}
+            aria-invalid={errors.message || undefined}
+            aria-describedby={errors.message ? "contact-message-error" : undefined}
+            required
+          />
           {errors.message ? (
-            <p className="field-error">
+            <p id="contact-message-error" className="field-error">
               <span className="es-only">Escribe un mensaje breve.</span>
               <span className="en-only">Write a short message.</span>
             </p>
           ) : null}
-        </label>
+        </div>
         <button className="btn btn-primary" type="submit">
           Email
         </button>

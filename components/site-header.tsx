@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LocaleSwitcher } from "@/components/locale-switcher";
+import { useSite } from "@/components/site-providers";
 
 const LINKS = [
   { href: "/", es: "Inicio", en: "Home" },
@@ -12,6 +13,7 @@ const LINKS = [
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const { locale } = useSite();
 
   return (
     <header className="site-header">
@@ -19,7 +21,7 @@ export function SiteHeader() {
         Sebastian V. Zaruha
       </Link>
       <div className="header-tools">
-        <nav className="nav" aria-label="Secciones">
+        <nav className="nav" aria-label={locale === "en" ? "Sections" : "Secciones"}>
           {LINKS.map((link) => {
             const current = link.href === "/" ? pathname === "/" : pathname === link.href;
             return (

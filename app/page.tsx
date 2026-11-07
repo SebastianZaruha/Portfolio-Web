@@ -3,8 +3,9 @@ import Link from "next/link";
 import { CONTACT_HREF } from "@/lib/contact";
 
 export const metadata: Metadata = {
-  title: "Sebastian V. Zaruha",
+  title: { absolute: "Sebastian V. Zaruha" },
   description: "Analizo antes de construir. Junior full stack. Criterio de diseño.",
+  alternates: { canonical: "/" },
 };
 
 export default function Home() {

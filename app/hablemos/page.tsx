@@ -4,6 +4,7 @@ import { ContactForm } from "@/components/contact-form";
 export const metadata: Metadata = {
   title: "Hablemos",
   description: "Si encaja lo que buscas, escríbeme.",
+  alternates: { canonical: "/hablemos" },
 };
 
 export default function HablemosPage() {

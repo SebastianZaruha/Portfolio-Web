@@ -10,12 +10,26 @@ import { display, sans } from "@/app/fonts";
 import { LOCALE_STORAGE_KEY } from "@/lib/ga";
 import "./globals.css";
 
+const siteUrl = new URL("https://sebastianzaruha.com");
+
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
   title: {
     default: "Sebastian V. Zaruha",
     template: "%s · Sebastian V. Zaruha",
   },
   description: "Analizo antes de construir. Junior full stack. Criterio de diseño.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    url: "/",
+    siteName: "Sebastian V. Zaruha",
+    title: "Sebastian V. Zaruha",
+    description: "Analizo antes de construir. Junior full stack. Criterio de diseño.",
+  },
+  twitter: { card: "summary" },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {

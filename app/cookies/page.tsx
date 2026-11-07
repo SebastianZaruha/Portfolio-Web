@@ -5,6 +5,7 @@ import { GA_MEASUREMENT_ID } from "@/lib/ga";
 export const metadata: Metadata = {
   title: "Política de cookies",
   description: "Política de cookies de sebastianzaruha.com. Google Analytics solo con consentimiento.",
+  alternates: { canonical: "/cookies" },
 };
 
 export default function CookiesPage() {

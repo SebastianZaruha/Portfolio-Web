@@ -446,6 +446,7 @@ html:not([lang="en"]) .en-only {
   gap: 0.4rem;
 }
 
+.field label,
 .field span {
   color: var(--text);
   font-size: var(--text-sm);
@@ -580,6 +581,10 @@ html:not([lang="en"]) .en-only {
 .cookie-actions button:hover {
   opacity: 0.84;
   border-color: var(--accent);
+}
+
+html[data-cookie-banner="open"] {
+  scroll-padding-bottom: calc(var(--cookie-banner-height, 20rem) + 1rem);
 }
 
 html[data-cookie-banner="open"] .site {
