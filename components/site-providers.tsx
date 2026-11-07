@@ -29,10 +29,20 @@ import {
   subscribeLocale,
   type Locale,
 } from "@/lib/locale";
+import {
+  getServerThemeSnapshot,
+  getThemeSnapshot,
+  resolveThemeMode,
+  saveTheme,
+  subscribeTheme,
+  type ThemePreference,
+} from "@/lib/theme";
 
 type SiteContextValue = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
+  themePreference: ThemePreference;
+  setTheme: (preference: ThemePreference) => void;
   consent: ConsentState;
   bannerOpen: boolean;
   focusToken: number;
@@ -54,6 +64,11 @@ export function useSite(): SiteContextValue {
 export function SiteProviders({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const locale = useSyncExternalStore(subscribeLocale, getLocaleSnapshot, getServerLocaleSnapshot);
+  const themePreference = useSyncExternalStore(
+    subscribeTheme,
+    getThemeSnapshot,
+    getServerThemeSnapshot,
+  );
   const consent = useSyncExternalStore(
     subscribeConsent,
     getConsentSnapshot,
@@ -91,8 +106,26 @@ export function SiteProviders({ children }: { children: ReactNode }) {
     document.documentElement.dataset.cookieBanner = bannerOpen ? "open" : "closed";
   }, [locale, bannerOpen]);
 
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-color-scheme: light)");
+    const apply = () => {
+      const mode = resolveThemeMode(getThemeSnapshot(), media.matches);
+      const root = document.documentElement;
+      root.dataset.theme = mode;
+      root.dataset.themePref = themePreference;
+      root.style.colorScheme = mode;
+    };
+    apply();
+    media.addEventListener("change", apply);
+    return () => media.removeEventListener("change", apply);
+  }, [themePreference]);
+
   const setLocale = useCallback((next: Locale) => {
     saveLocale(next);
+  }, []);
+
+  const setTheme = useCallback((next: ThemePreference) => {
+    saveTheme(next);
   }, []);
 
   const accept = useCallback(() => {
@@ -115,6 +148,8 @@ export function SiteProviders({ children }: { children: ReactNode }) {
     () => ({
       locale,
       setLocale,
+      themePreference,
+      setTheme,
       consent,
       bannerOpen,
       focusToken,
@@ -122,7 +157,18 @@ export function SiteProviders({ children }: { children: ReactNode }) {
       accept,
       reject,
     }),
-    [locale, setLocale, consent, bannerOpen, focusToken, openBanner, accept, reject],
+    [
+      locale,
+      setLocale,
+      themePreference,
+      setTheme,
+      consent,
+      bannerOpen,
+      focusToken,
+      openBanner,
+      accept,
+      reject,
+    ],
   );
 
   return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>;

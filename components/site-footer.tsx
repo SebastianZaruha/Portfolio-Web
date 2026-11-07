@@ -9,6 +9,7 @@ export function SiteFooter() {
 
   return (
     <footer className="site-footer">
+      <div className="site-footer-inner">
       <p>© 2026 Sebastian Zaruha</p>
       <nav className="nav" aria-label={locale === "en" ? "Legal" : "Información legal"}>
         <Link href="/aviso-legal">
@@ -32,6 +33,7 @@ export function SiteFooter() {
         </button>
         <LocaleSwitcher />
       </nav>
+      </div>
     </footer>
   );
 }

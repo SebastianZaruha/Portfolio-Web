@@ -1,13 +1,12 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import Script from "next/script";
 import { CookieBanner } from "@/components/cookie-banner";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteProviders } from "@/components/site-providers";
 import { display, sans } from "@/app/fonts";
-import { LOCALE_STORAGE_KEY } from "@/lib/ga";
+import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import "./globals.css";
 
 const siteUrl = new URL("https://sebastianzaruha.com");
@@ -33,11 +32,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#161311",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#EFE6DA" },
+    { media: "(prefers-color-scheme: dark)", color: "#1A120E" },
+  ],
+  colorScheme: "light dark",
 };
 
-const localeScript = `try{var l=localStorage.getItem(${JSON.stringify(LOCALE_STORAGE_KEY)});if(l==="en"||l==="es")document.documentElement.lang=l;}catch(e){}`;
+const criticalThemeCss =
+  "html{background:#1A120E;color:#F3ECE4;color-scheme:dark}html[data-theme=light]{background:#EFE6DA;color:#1A120E;color-scheme:light}@media (prefers-color-scheme:light){html:not([data-theme=dark]){background:#EFE6DA;color:#1A120E;color-scheme:light}}";
 
 export default function RootLayout({
   children,
@@ -45,15 +48,10 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${sans.variable} ${display.variable}`}
-      style={{ backgroundColor: "#161311", color: "#f4eee6" }}
-    >
+    <html lang="es" className={`${sans.variable} ${display.variable}`} suppressHydrationWarning>
       <body>
-        <Script id="locale-early" strategy="beforeInteractive">
-          {localeScript}
-        </Script>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
+        <style dangerouslySetInnerHTML={{ __html: criticalThemeCss }} />
         <a className="skip" href="#contenido">
           <span className="es-only">Saltar al contenido</span>
           <span className="en-only">Skip to content</span>

@@ -1,28 +1,31 @@
 /*
-  Tokens — portfolio definitivo
-  Near-dark warm base, one brass accent, two families.
-  Motion stays inside 150–400ms. Name/claim are not faded in (that would delay LCP).
-  --font-sans-file and --font-display-file are set by next/font on <html>.
+  Warm fresco palette.
+  Anchors: #1A120E #3A2418 #6B4A2E #A88462 #D5C4AE #4A4A46
+  Light is cream. Dark is deep warm brown. The painting is not recolored.
+  --font-sans-file and --font-display-file come from next/font on <html>.
 */
 
 :root {
-  --bg: #161311;
-  --bg-raised: #211e1a;
-  --text: #f4eee6;
-  --muted: #d2c8bc;
-  --faint: #b7aea3;
-  --line: #322d28;
-  --accent: #c4a574;
-  --accent-hover: #d4b88a;
-  --accent-ink: #1a1612;
+  --bg: #1a120e;
+  --bg-raised: #3a2418;
+  --text: #f3ece4;
+  --muted: #d5c4ae;
+  --faint: #a88462;
+  --line: rgba(168, 132, 98, 0.38);
+  --accent: #a88462;
+  --accent-fill: #a88462;
+  --accent-ink: #1a120e;
+  --segment-active: #a88462;
+  --segment-ink: #1a120e;
+  --veil: rgba(26, 18, 14, 0.86);
+  --header: rgba(26, 18, 14, 0.9);
+  --focus: #d5c4ae;
   --font-sans: var(--font-sans-file), "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-display: var(--font-display-file), "Iowan Old Style", Palatino, Georgia, serif;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-md: 1.0625rem;
   --text-lg: 1.25rem;
-  --text-xl: clamp(1.75rem, 4vw, 2.65rem);
-  --text-display: clamp(3.1rem, 9vw, 5.4rem);
   --space-2xs: 0.35rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
@@ -31,11 +34,49 @@
   --space-xl: 2.5rem;
   --space-2xl: 4.5rem;
   --measure: 38rem;
-  --radius: 2px;
+  --radius: 0;
   --dur-fast: 160ms;
   --dur: 280ms;
   --dur-enter: 360ms;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-press: cubic-bezier(0.3, 0, 0.2, 1);
-  --header-h: 4.25rem;
+  --header-h: 4.75rem;
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  --bg: #efe6da;
+  --bg-raised: #d5c4ae;
+  --text: #1a120e;
+  --muted: #3a2418;
+  --faint: #4a4a46;
+  --line: rgba(58, 36, 24, 0.22);
+  --accent: #6b4a2e;
+  --accent-fill: #3a2418;
+  --accent-ink: #efe6da;
+  --segment-active: #3a2418;
+  --segment-ink: #efe6da;
+  --veil: rgba(239, 230, 218, 0.9);
+  --header: rgba(239, 230, 218, 0.92);
+  --focus: #6b4a2e;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme]) {
+    --bg: #efe6da;
+    --bg-raised: #d5c4ae;
+    --text: #1a120e;
+    --muted: #3a2418;
+    --faint: #4a4a46;
+    --line: rgba(58, 36, 24, 0.22);
+    --accent: #6b4a2e;
+    --accent-fill: #3a2418;
+    --accent-ink: #efe6da;
+    --segment-active: #3a2418;
+    --segment-ink: #efe6da;
+    --veil: rgba(239, 230, 218, 0.9);
+    --header: rgba(239, 230, 218, 0.92);
+    --focus: #6b4a2e;
+    color-scheme: light;
+  }
 }
