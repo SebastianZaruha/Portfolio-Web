@@ -14,10 +14,10 @@ Abre [http://localhost:3000](http://localhost:3000).
 
 ## Qué hay
 
-- `/` — nombre, claim «Analizo antes de construir.» / «Think before I ship.», línea «Junior full stack. Criterio de diseño.» / «Junior full stack. Design judgment.», acciones «Hablemos» y «Email».
+- `/` — nombre, «Desarrollador full stack junior.» / «Junior full stack developer.», y tres datos: DAM, React, Next.js. Acciones «Hablemos» y «Email». Marfil por defecto, ciruela en oscuro.
 - `/sobre-mi` y `/hablemos` — texto corto, ES/EN con el selector. `/contacto` redirige a `/hablemos`.
 - `/aviso-legal`, `/privacidad` y `/cookies` — textos legales. En privacidad, tipografías e imágenes autoalojadas; no se afirma vídeo. Google Analytics 4 (`G-SZGV9NFPVH`) solo tras aceptar. Vercel Web Analytics sigue activo.
-- Tokens en `app/styles/tokens.css`: color, escala, espacio, radio, duraciones 160–360ms. Nombre en Ephesis (autoalojada, `font-display: optional`). UI en Open Sans (`swap`).
+- Tokens en `app/styles/tokens.css`: marfil y ciruela, escala, espacio, radio, duraciones 160–360ms. Nombre en Ephesis. UI en Open Sans.
 - Sin Tailwind, sin Three.js, sin vídeo de fondo.
 
 La preferencia del banner se guarda en `localStorage` (`cookie_consent`) con la versión `v1-portfolio-2026-11-05`. No usar el property de Hourglass (`G-LEKYE5VYL2`). `NEXT_PUBLIC_GA_ID` es opcional y solo se tiene en cuenta si vale `G-SZGV9NFPVH` (ver `.env.example`).

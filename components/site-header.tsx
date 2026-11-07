@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LocaleSwitcher } from "@/components/locale-switcher";
+import { ThemeSwitch } from "@/components/theme-switch";
 import { useSite } from "@/components/site-providers";
 
 const LINKS = [
@@ -32,6 +33,7 @@ export function SiteHeader() {
             );
           })}
         </nav>
+        <ThemeSwitch />
         <LocaleSwitcher />
       </div>
     </header>

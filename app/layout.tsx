@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteProviders } from "@/components/site-providers";
 import { display, sans } from "@/app/fonts";
 import { LOCALE_STORAGE_KEY } from "@/lib/ga";
+import { THEME_COLORS, THEME_STORAGE_KEY } from "@/lib/theme";
 import "./globals.css";
 
 const siteUrl = new URL("https://sebastianzaruha.com");
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     default: "Sebastian V. Zaruha",
     template: "%s · Sebastian V. Zaruha",
   },
-  description: "Analizo antes de construir. Junior full stack. Criterio de diseño.",
+  description: "Desarrollador full stack junior. DAM, especialidad full stack. Practico Next.js.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -26,18 +27,21 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Sebastian V. Zaruha",
     title: "Sebastian V. Zaruha",
-    description: "Analizo antes de construir. Junior full stack. Criterio de diseño.",
+    description: "Desarrollador full stack junior. DAM, especialidad full stack. Practico Next.js.",
   },
   twitter: { card: "summary" },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#161311",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: THEME_COLORS.light.bg },
+    { media: "(prefers-color-scheme: dark)", color: THEME_COLORS.dark.bg },
+  ],
+  colorScheme: "light dark",
 };
 
-const localeScript = `try{var l=localStorage.getItem(${JSON.stringify(LOCALE_STORAGE_KEY)});if(l==="en"||l==="es")document.documentElement.lang=l;}catch(e){}`;
+const bootScript = `try{var l=localStorage.getItem(${JSON.stringify(LOCALE_STORAGE_KEY)});if(l==="en"||l==="es")document.documentElement.lang=l;}catch(e){}try{var c=localStorage.getItem(${JSON.stringify(THEME_STORAGE_KEY)});var dark=c==="dark"||(c!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);var root=document.documentElement;root.dataset.theme=dark?"dark":"light";root.style.colorScheme=dark?"dark":"light";root.style.backgroundColor=dark?"${THEME_COLORS.dark.bg}":"${THEME_COLORS.light.bg}";root.style.color=dark?"${THEME_COLORS.dark.text}":"${THEME_COLORS.light.text}";}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -48,11 +52,12 @@ export default function RootLayout({
     <html
       lang="es"
       className={`${sans.variable} ${display.variable}`}
-      style={{ backgroundColor: "#161311", color: "#f4eee6" }}
+      data-theme="light"
+      style={{ backgroundColor: THEME_COLORS.light.bg, color: THEME_COLORS.light.text }}
     >
       <body>
-        <Script id="locale-early" strategy="beforeInteractive">
-          {localeScript}
+        <Script id="boot" strategy="beforeInteractive">
+          {bootScript}
         </Script>
         <a className="skip" href="#contenido">
           <span className="es-only">Saltar al contenido</span>
